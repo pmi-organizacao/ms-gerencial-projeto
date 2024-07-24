@@ -2,6 +2,7 @@ package com.recursos.humanos.aplicacao.service.implementacao;
 
 import com.recursos.humanos.aplicacao.Enum.EStatusProjeto;
 import com.recursos.humanos.aplicacao.dominio.Colaborador;
+import com.recursos.humanos.aplicacao.dominio.Telefone;
 import com.recursos.humanos.aplicacao.dto.request.cargo.ColaboradorRequest;
 import com.recursos.humanos.aplicacao.dto.request.colaborador.ColaboradorReuqestDadosProjetoRequest;
 import com.recursos.humanos.aplicacao.dto.response.AlterarStatusResponse;
@@ -9,6 +10,7 @@ import com.recursos.humanos.aplicacao.exceptions.excessoesTratadas.ColaboradorJa
 import com.recursos.humanos.aplicacao.exceptions.excessoesTratadas.ColaboradorNaoEncontradoException;
 import com.recursos.humanos.aplicacao.menssageria.AdicionarColaboradorQueue;
 import com.recursos.humanos.aplicacao.repository.ColaboradorRepository;
+import com.recursos.humanos.aplicacao.repository.DadosContatoRepository;
 import com.recursos.humanos.aplicacao.service.interfaces.CargoService;
 import com.recursos.humanos.aplicacao.service.interfaces.ColaboradorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,22 +31,32 @@ public class ColaboradorImplementacao implements ColaboradorService {
     @Autowired
     private AdicionarColaboradorQueue queue;
 
+    @Autowired
+    private DadosContatoRepository dadosContatoRepository;
+
+
 
     @Override
     public Colaborador registrarNovoColaborador(ColaboradorRequest colaboradorRequest) {
-        System.out.println(colaboradorRequest.toString());
-        if (colaboradorRepository.existsByDadosPessoaisNomeCompleto(colaboradorRequest.getDadosPessoais().getNomeCompleto()))
-            throw new ColaboradorJaEstaRegistradoException("Colaborador de nome " + colaboradorRequest.getDadosPessoais().getNomeCompleto() + " já está cadastrado.");
-        System.out.println("primeira validacao");
-        if (colaboradorRepository.existsByDadosPessoaisCpf(colaboradorRequest.getDadosPessoais().getCpf()))
-            throw new ColaboradorNaoEncontradoException("Colaborador de cpf " + colaboradorRequest.getDadosPessoais().getCpf() + " já está cadastrado.");
-        System.out.println("segunda validacao");
-        Colaborador colaborador = Colaborador.construirColaboradorPeloSeuRquest(colaboradorRequest, cargoService);
-        System.out.println(colaborador.toString());
+        verificarNomeValido(colaboradorRequest);
+        verifcarCpfValidoOuExistenteBD(colaboradorRequest);
+        var colaborador = Colaborador.construirColaboradorPeloSeuRquest(colaboradorRequest, cargoService);
         var colaboradorSalvo = colaboradorRepository.save(colaborador);
-        System.out.println("colaborador salvo " + colaboradorSalvo);
+        dadosContatoRepository.saveAll(colaboradorRequest.getDadosContato().getNumerosContato().stream().map(telefoneRequest -> {
+            return Telefone.construirTelefone(telefoneRequest, colaboradorSalvo.getId());
+        }).toList());
         queue.novoColaboradorAdicionado(Colaborador.construirDadoDeTransferencia(colaboradorSalvo));
         return colaboradorSalvo;
+    }
+
+    private void verifcarCpfValidoOuExistenteBD(ColaboradorRequest colaboradorRequest) {
+        if (colaboradorRepository.existsByDadosPessoaisCpf(colaboradorRequest.getDadosPessoais().getCpf()))
+            throw new ColaboradorNaoEncontradoException("Colaborador de cpf " + colaboradorRequest.getDadosPessoais().getCpf() + " já está cadastrado.");
+    }
+
+    private void verificarNomeValido(ColaboradorRequest colaboradorRequest) {
+        if (colaboradorRepository.existsByDadosPessoaisNomeCompleto(colaboradorRequest.getDadosPessoais().getNomeCompleto()))
+            throw new ColaboradorJaEstaRegistradoException("Colaborador de nome " + colaboradorRequest.getDadosPessoais().getNomeCompleto() + " já está cadastrado.");
     }
 
     @Override

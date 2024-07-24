@@ -15,6 +15,7 @@ public class DadosTransferenciaAddColaboradorQueue {
     private Long id;
     private String nomeCompleto;
     private String nomeCargo;
+    private String email;
 
 
 }

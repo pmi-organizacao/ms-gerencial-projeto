@@ -24,6 +24,7 @@ public class Colaborador {
     private Long id;
     @Embedded
     private DadosPessoais dadosPessoais;
+
     @Embedded
     private Endereco endereco;
 
@@ -43,7 +44,7 @@ public class Colaborador {
     public static Colaborador construirColaboradorPeloSeuRquest(ColaboradorRequest colaboradorRequest, CargoService cargoService) {
         System.out.println("construindo o colaborador");
         return Colaborador.builder()
-                .dadosPessoais(colaboradorRequest.getDadosPessoais())
+                .dadosPessoais(colaboradorRequest.getDadosPessoais().construirDadosPessoais(colaboradorRequest.getDadosContato().getNumerosContato()))
                 .endereco(colaboradorRequest.getEndereco())
                 .dadosFinanceiro(colaboradorRequest.getDadosFinanceiro())
                 .cargo(cargoService.buscarCargoPeloIDEStatus(colaboradorRequest.getIdCargo(), true))
@@ -69,6 +70,7 @@ public class Colaborador {
                 .id(colaboradorSalvo.getId())
                 .nomeCompleto(colaboradorSalvo.dadosPessoais.getNomeCompleto())
                 .nomeCargo(colaboradorSalvo.cargo.getNomeCargo())
+                .email(colaboradorSalvo.getDadosPessoais().getEmail())
                 .build();
     }
 

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400&display=swap"
+          rel="stylesheet" />
+
+    <title></title>
+
+    <style>
+        /* Estilizando elementos com as classes (Elementos e Classes)*/
+
+        p.text {
+          font-size: medium;
+          font-weight: none;
+          color: #666666;
+          line-height: 1.6;
+        }
+
+        /* Estilo para os itens da lista */
+        li {
+          font-size: medium;
+          color: #666666;
+          margin-bottom: 10px;
+          counter-increment: my-counter;
+        }
+
+        /* IDs */
+
+        #container {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          width: 100%;
+          height: 300px;
+          /*background-image: url("https://bbprevidencia.com.br/blog/arquivos/img-solicitacao-de-institutos-autopatrocinio/");*/
+          background-image: url("https://i.ibb.co/254DfC5/PMI.png");
+          background-size: 650px;
+        }
+
+
+        .title_part {
+          font-size: 22px;
+          color: #000000;
+          margin-top: 5%;
+          margin-bottom: 0;
+        }
+
+        .text_bold {
+          font-size: 18px;
+          color: #000000;
+          margin-top: 5%;
+          margin-bottom: 0;
+        }
+
+        .text_bold_black {
+          font-size: 15px;
+          color: #080808;
+          margin-top: 5%;
+          margin-bottom: 0;
+        }
+
+        /* Classes */
+
+        .div_alignment_text {
+          padding: 5%;
+          font-size: 18px;
+        }
+
+        #socials_media a {
+          margin-right: 2%;
+          margin-left: 5%;
+        }
+
+        #socials_media a img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .main_footer {
+          width: 100%;
+          padding: 10px 0px;
+          background-color: #000000;
+          color: #cedcf8;
+          font-family: 'Lato';
+        }
+
+        h3{
+          margin: 0px;
+        }
+
+        .aside {
+          padding: 10px 20px;
+          gap: 10px;
+        }
+
+        .aside > .row{
+          margin-top: 6px;
+        }
+
+        .title_footer {
+          z-index: 2;
+        }
+
+        b{
+          font-weight: 900;
+        }
+
+        p{
+          margin: 0px;
+          padding: 0px;
+          font-size: 13px;
+        }
+
+        .row {
+          display: flex;
+
+        }
+
+        .row > a{
+          margin-right: 7px;
+          color: #cedcf8;
+
+        }
+
+        .anc_footer {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          text-decoration: none;
+        }
+
+        .a-img_footer {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+
+        .icon_footer {
+          width: 35px;
+          height: 35px;
+
+        }
+
+
+        .div_alignment_button {
+          padding-right: 6%;
+          font-size: 18px;
+
+        }
+
+        #colorir {
+            background-color: #cedcf8;
+        }
+
+        #main_button {
+            width: 100%;
+            display: inline-block; /* Torna o link um elemento de bloco */
+            padding: 12px 5px; /* Ajusta o preenchimento do botão */
+            background-color: #0060a9;
+            color: #fff;
+            text-decoration: none; /* Remove sublinhado padrão */
+            border-radius: 4px;
+            transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+            text-align: center; /* Centraliza o texto dentro do botão */
+            font-size: 16px; /* Tamanho da fonte do botão */
+            margin: 16px 10px;
+        }
+
+        #main_button:hover {
+        background-color: #004c87; /* Cor de fundo diferente para o hover */
+        }
+
+    </style>
+
+</head>
+
+<body style="background-color: #f2f2f2;">
+<table bgcolor="#FFF" cellpadding="0" cellspacing="0" align="center" width="650px" style="
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+    line-height: 150%;
+    background: white;
+    font-size: 14px;
+    border-bottom: none;
+    height: 660px;
+    background-image: #000000;
+  ">
+    <header>
+        <tr>
+            <td>
+                <div id="container">
+                </div>
+            </td>
+        </tr>
+    </header>
+    <section>
+        <tr>
+            <td colspan="3">
+                <div class="div_alignment_text">
+                    <p class="title_part"><b class="text_bold">Fala #nomeParticipante#!</b></p>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <div class="div_alignment_text">
+                    <p class="text">
+                        Espero que esta mensagem o encontre bem. Estou entrando em contato para informar que você foi registrado no maior aplicativo de gerenciamento de projeto do mundo.
+                        <br/>
+                        <br/>
+                        Segue o as credenciais para acessar o app:
+                        <br/>
+
+                    <ul>
+                        <li><b class="text_bold_black">Login:</b> #login#</li>
+                        <li><b class="text_bold_black">Senha:</b> #senha#</li>
+                    </ul>
+
+                    <br/>
+                    </p>
+                </div>
+
+
+
+
+
+
+            </td>
+        </tr>
+        <table bgcolor="#FFF" cellpadding="0" cellspacing="0" align="center" width="650px" style="
+        font-family: 'Roboto', sans-serif;
+        color: #333333;
+        line-height: 150%;
+        background-image: #000000;
+        border-top: none;
+      ">
+            <footer>
+                <tr class="main_footer">
+                    <td>
+                        <div class="aside">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3 class="title_footer">Dúvidas?</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="title_footer" style="
+                    border-bottom: 3px solid rgb(0, 277, 277);
+                    line-height: 0.2;
+                    padding-top: 5px;">
+                                            fale conosco!
+                                        </h3>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p style="padding-top: 2px">Central de Relacionamento da PMI - Project Manage Instances</p>
+                            <div class="row">
+                                <a href="https://www.youtube.com/watch?v=WM0ooITZnXc" class="anc_footer" target="_blank">
+                                    <img class="a-img_footer" id="colorir" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-Instagram.png" alt="Instagram">
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=WM0ooITZnXc" class="anc_footer" target="_blank">
+                                    <img class="a-img_footer" id="colorir" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-facebook.png" alt="Facebook">
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=WM0ooITZnXc" class="anc_footer" target="_blank">
+                                    <img class="a-img_footer" id="colorir" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-LinkedIn.png" alt="LinkedIn">
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=WM0ooITZnXc" class="anc_footer" target="_blank">
+                                    <img class="a-img_footer" id="colorir" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-spotfy.png" alt="Spotify">
+                                </a>
+                                <h3>/pmi</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="aside">
+                            <div class="row">
+                                <a href="https://web.whatsapp.com/send?phone=556131810179&text=" class="icon_footer" target="_blank" style="padding-top: 5px;">
+                                    <img class="icon_footer" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-wpp.png" alt="WhatsApp">
+                                </a>
+                                <div>
+                                    <p>Mande uma mensagem para o nosso WhatsApp</p>
+                                    <p><b>(11) 4002 - 8922</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="icon_footer">
+                                    <img class="icon_footer"id="colorir" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-telefone.png" alt="Telefone">
+                                </a>
+                                <p style="padding-top: 5px;">8546 - 8546 ou 0800 525 4998</p>
+                            </div>
+                            <div class="row">
+                                <a href="https://www.youtube.com/watch?v=WM0ooITZnXc" class="icon_footer" target="_blank">
+                                    <img class="icon_footer" id="colorir" src="https://bbprevidencia.com.br/blog/wp-content/uploads/2024/06/icone-web.png" alt="Web">
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=WM0ooITZnXc" target="_blank" style="padding-top: 5px;">
+                                    <p>pmi.com.br</p>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </footer>
+        </table>
+</table>
+
+</body>
+</html>
